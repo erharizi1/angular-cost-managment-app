@@ -10,7 +10,8 @@ import { NewProjectComponent } from './modalForms/new-project/new-project.compon
 
 const routes: Routes = [
   {
-    path: '', component: HomeComponent, children: [{
+    path: '', component: HomeComponent, children: [
+    {
       path: 'project-list', component: ProjectListComponent,
     },
     {path: '', component: NewProjectComponent},
@@ -22,7 +23,6 @@ const routes: Routes = [
  // {path: 'project-list', component: ProjectListComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-
 ];
 
 @NgModule({

@@ -111,12 +111,13 @@ a,a:hover{
 .page-wrapper{
     overflow:hidden;
     background:#e5e5e5;
-    padding-bottom:8vh
+    padding-bottom:25vh
 }
 
 .page-container{
     background:#e5e5e5;
-    padding-left:200px
+    padding-left:200px;
+    
 }
 
 .main-content{
@@ -1089,13 +1090,51 @@ footer ul li{
 }
 
 
-input[type=text] {
-    width: 130px;
-    -webkit-transition: width 0.4s ease-in-out;
-    transition: width 0.4s ease-in-out;
+  .container-form {
+      max-width: 500px;
+      padding: 6%;
+    /* left: 8%; */
+    margin-left: 30%;
+    margin-top: 2%;
+    background-color: whitesmoke;
   }
+
+  #profile-img {
+    margin-left: 15%;
+  }
+
+  .register-container {
+      padding:8%
+  }
+
+  .user-reg {
+    padding: 7%;
+  }
+
+  .login-li {
+    font-family: auto;
+    background-color: #4a78a0;
+  }
+
+  .login-li a h4 {
+    color: #b6bec1;
+    margin-left: 50%;
+  }
+
+
+  .reg-li  {
+    font-family: auto;
+    background-color: #06ff70;
+    margin-top: 6%;
+  }
+
+  .reg-li a h4 {
+    color: #b6bec1;
+    margin-left: 36%;
+  }
+
+  .profile-user {
+      display: flex;
+  }
+
   
-  /* When the input field gets focus, change its width to 100% */
-  input[type=text]:focus {
-    width: 100%;
-  }

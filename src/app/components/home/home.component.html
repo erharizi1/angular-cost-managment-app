@@ -21,22 +21,32 @@
 		<!-- MENU SIDEBAR-->
 		<aside class="menu-sidebar d-none d-lg-block">
 			<div class="logo">
-				<a href="home.html">
-					<img src="assets/images/logo.png" alt="luv2shop" class="img-responsive">
+				<a routerLink="/">
+					<img src="assets/images/77-512.png" alt="luv2shop" class="img-responsive">
 				</a>
 			</div>
 			<div class="menu-sidebar-content js-scrollbar1">
+				<div class="user-reg" *ngIf="!isLoggedIn">
+					<ul class="list-unstyled navbar-list">
+						<li class="login-li">
+							<a routerLink="/login">
+								<h4> Login </h4>
+							</a>
+						</li>
+						<li class="reg-li">
+							<a routerLink="/register">
+							<h4>Register</h4>	
+							</a>
+						</li>
+					</ul>
+					
+				</div>
 				<nav class="navbar-sidebar">
 					<ul class="list-unstyled navbar-list">
 						<li>
 							<a routerLink="/project-list">Project List</a>
 						</li>
-						<li>
-							<a routerLink="/login">login</a>
-						</li>
-						<li>
-							<a routerLink="/register">register</a>
-						</li>
+			
 					</ul>
 				</nav>
 			</div>
@@ -57,15 +67,14 @@
 									Search
 								</button>
 							</form>
-							<div class="cart-area d-n">
-								<a href="shopping-detail.html">
-                  <!-- <div class="total">19.22 <span> 2</span> </div>  -->
-                  <i class="fa fa-user"
-										aria-hidden="true"></i>
+							<div class="profile-user" *ngIf="isLoggedIn">
+								<a href=""> <i class="fa fa-user" aria-hidden="true"></i>
+									<p> {{ username }} </p> 
 								</a>
+								<a href class="nav-link" (click)="logout()">LogOut</a>
 							</div>
 						</div>
-						<div class="account-wrap">
+						<!-- <div class="account-wrap">
 							<ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
 								<li class="nav-item">
 								  <a href="/profile" class="nav-link" routerLink="profile">{{ username }}</a>
@@ -75,7 +84,7 @@
 								</li>
 							  </ul>
 
-						</div>
+						</div> -->
 					</div>
 				</div>
 			</header>

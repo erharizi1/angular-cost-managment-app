@@ -5,6 +5,7 @@ import {HttpClientModule, HttpClient, HttpParams, HttpErrorResponse, HttpHeaders
 import { Observable, throwError, Subject } from 'rxjs';
 import { Project } from '../class/project';
 import { map, catchError } from 'rxjs/operators';
+import { TokenStorageService } from './token-storage.service';
 @Injectable({
   providedIn: 'root'
 })
@@ -15,7 +16,7 @@ export class ProjectService {
 
   private baseUrl = 'http://localhost:8080/api/';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,  private tokenStorageService: TokenStorageService) { }
 
   public notifyOther(data: any): void {
     if (data) {
@@ -64,7 +65,7 @@ export class ProjectService {
 
   getPageProject(page: number): Observable<PageProject>{
     let url = 'http://localhost:8080/api/projects/get?page=';
-    url = url + page + '&size=3';
+    url = url + page + '&size=3' + '&userid=' + this.tokenStorageService.getUser().id;
     console.log(url);
     return this.http.get<PageProject>(url)
     .pipe(
@@ -84,7 +85,6 @@ export class ProjectService {
       catchError(this.errorHandler));
   }
 
-  
   // getPageProjectByName(name: string): Observable<any>{
   //   let url = 'http://localhost:8080/api/projects/name?name=';
   //   url = url + name ;

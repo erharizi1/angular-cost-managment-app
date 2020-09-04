@@ -4,6 +4,7 @@ import { ProjectService } from 'src/app/service/project.service';
 import { Project } from 'src/app/class/project';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { TokenStorageService } from 'src/app/service/token-storage.service';
 
 @Component({
   selector: 'app-project-list',
@@ -12,12 +13,12 @@ import { Subscription } from 'rxjs';
 })
 export class ProjectListComponent implements OnInit {
 
-  projects: Project[];
+  projects: Project[] = [];
   pageProject: PageProject ;
   selectedPage = 0;
   private subscription: Subscription;
 
-  constructor(private projectService: ProjectService, private router: Router) { }
+  constructor(private projectService: ProjectService, private router: Router, private tokenStorageService: TokenStorageService) { }
 
   ngOnInit(): void {
   //  this.listProjects();
@@ -59,10 +60,24 @@ export class ProjectListComponent implements OnInit {
           // tslint:disable-next-line:no-shadowed-variable
           .subscribe(page => {
             this.pageProject = page;
-            this.projects = page.content;
+            console.log(page.content);
+           this.projects = page.content ;
+          //this.showProjectOnlyForLoggedUser(page.content);
           } );
     }
 
+    showProjectOnlyForLoggedUser(projects): void {
+      console.log("hyri");
+      console.log(projects.length);
+    //   for (let i = 0; i<projects.length; i++) {
+
+    //     console.log(this.tokenStorageService.getUser().id);
+    //     if (projects[i].userId === this.tokenStorageService.getUser().id ){
+    //       this.projects.push(projects[0]);
+    //         console.log(this.projects);
+    //     }
+    //  }
+    }
     searchByName(value: any): void {
       console.log(value);
       console.log(this.selectedPage);
