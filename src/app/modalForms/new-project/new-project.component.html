@@ -1,0 +1,40 @@
+
+	<div class="plusicon">
+    <p #openmodal  id="openmodal" (click)="open(mymodal)">
+      <img src="assets/images/plus-flat.png" alt="add project" class="img-responsive">
+    </p>
+  </div>
+
+
+<ng-template #mymodal let-modal>
+  <form [formGroup]="subscriptionForm">
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Add new project</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <label for="exampleFormControlInput1">Name of project</label>
+        <br>
+        <input type="email" formControlName="name" class="form-control" id="name">
+        <label for="exampleFormControlInput2">Expected cost</label>
+        <br>
+        <input type="number" formControlName="expectedCost" class="form-control" id="expectedCost">
+        <label for="exampleFormControlInput3">Notes</label>
+        <br>
+        <textarea id="notes" formControlName="notes" name="w3review" rows="4" cols="50">
+        
+        </textarea>
+        <label for="exampleFormControlInput3">Starting time</label>
+        <br>
+        <input type="date" formControlName="startingDate" id="EndTime" name="startingDate">
+        <label for="exampleFormControlInput3">End time</label>
+        <br>
+        <input type="date" formControlName="endDate" id="exampleFormControlInput3" name="endDate">
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="save()">Ok</button>
+    </div>
+    </form>
+  </ng-template>

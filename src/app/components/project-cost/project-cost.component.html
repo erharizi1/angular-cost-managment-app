@@ -1,0 +1,33 @@
+
+<app-new-expense></app-new-expense>
+
+<div class="card" *ngIf="projectDetails">
+    <p> Name of the Project: {{ projectDetails.name}} </p>
+    <p> Expected cost :{{ projectDetails.expectedCost}} </p> 
+    <p> Paid so far: {{ sumPaid }}</p>
+</div>
+
+<div class="card"  style="height: 25rem;padding: 2%">
+    <div class="card " *ngFor="let tempProject of expenses; let i = index" >
+       
+        <div class="row">
+            <div class="expenses col-xs-10 col-sm-7">
+                <div class="row">
+        <p class="col-md-1"> {{ i+1 }}. </p>
+        <p class="col-md-3"> <b>{{ tempProject.name }} </b></p>
+        <p class="col-md-3"><b> {{ tempProject.cost }} </b> <i class="fas fa-euro-sign"></i></p>
+    </div>
+        <!-- <p class="col-md-3"> {{ tempProject.notes}} </p> -->
+    </div>
+      
+     <div class="col-xs-10 col-sm-3">
+        <div class="modify-btn">
+            <button class="col-md-3 editExpenses" (click)="editExpenses(tempProject.id)"> <i class="fa fa-trash" aria-hidden="true"></i>  </button>
+            <button class="col-md-3 editExpenses" (click)="editExpenses(tempProject.id)"> <i class="fas fa-edit"></i> </button>
+         </div>
+     </div>
+   
+
+    </div>
+    </div>
+</div>

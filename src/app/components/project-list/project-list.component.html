@@ -1,0 +1,54 @@
+    <!-- <div style="display: flex;"> 
+        <div class="product-box" *ngFor="let tempProject of projects">
+            <a  routerLink="/project-cost">
+                <img src="assets/images/placeholder.png" class="img-responsive">
+            </a>
+             <a href="product-detail.html"> -->
+                <!-- <h1>{{ tempProject.name }}</h1> -->
+            <!-- </a>
+        </div>
+    </div> -->
+    <ul style="margin-left: 180px;margin-top:-10px;" class="pagination"  *ngIf="projects" >
+        <li *ngFor="let page of ' '.repeat(pageProject.totalPages).split(''), let i = index " (click)="onSelect(i)" [class.active]="i === selectedPage" class="page-item"><a class="page-link" routerLink="/project-list">{{i}}</a></li>
+      </ul>
+
+
+
+    <div class="main-content">
+        <div class="section-content section-content-p30">
+            <div class="container-fluid">
+             
+                <div class="column" *ngIf="projects">
+    
+                    <div *ngFor="let tempProject of projects" class="card  shadow p-3 mb-5 bg-white rounded">
+                        <div class="row row-m-b">
+                            <div class="product-box" class="col-md-3">
+                                <a  [routerLink]="['/allexpenses', tempProject.id]">
+                                <img src="assets/images/file.png" class="img-responsive">
+                                </a>
+
+                                <button (click)="delete()">  <i class="fa fa-trash" aria-hidden="true"></i> </button>
+                               
+                                <br>
+                                <button (click)="edit(tempProject.id)"> <i class="fas fa-edit"></i> </button>
+        
+                               
+                            </div>
+                            <div class="projectInfo" class="card-block col-md-6">
+                                <h3> Name: {{ tempProject.name }}</h3> 
+                                <p> Period: {{ tempProject.startingDate | date}} - {{ tempProject.endDate | date }}</p> 
+                                <p> Cost: {{ tempProject.expectedCost }} <i class="fas fa-euro-sign"></i></p>
+                                <!-- <div class="price"> {{ tempProduct.unitPrice | currency:'USD' }}</div>
+                                <a href="#" class="primary-btn">Add to cart</a> -->
+                            </div>
+                        </div>
+             
+    
+                    </div>
+    
+                </div>
+            </div>
+    
+        </div>
+    
+    </div>

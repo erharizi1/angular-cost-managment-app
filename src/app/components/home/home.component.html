@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<title>Cost managment app : Angular and Spring Boot</title>
+
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" media="all">
+
+
+
+	<link rel="icon" href="assets/images/fav-icon.png">
+</head>
+
+<body>
+	<div class="page-wrapper">
+
+		<!-- MENU SIDEBAR-->
+		<aside class="menu-sidebar d-none d-lg-block">
+			<div class="logo">
+				<a href="home.html">
+					<img src="assets/images/logo.png" alt="luv2shop" class="img-responsive">
+				</a>
+			</div>
+			<div class="menu-sidebar-content js-scrollbar1">
+				<nav class="navbar-sidebar">
+					<ul class="list-unstyled navbar-list">
+						<li>
+							<a routerLink="/project-list">Project List</a>
+						</li>
+						<li>
+							<a routerLink="/login">login</a>
+						</li>
+						<li>
+							<a routerLink="/register">register</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</aside>
+		<!-- END MENU SIDEBAR-->
+
+		<!-- PAGE CONTAINER-->
+		<div class="page-container">
+			<!-- HEADER DESKTOP-->
+			<header class="header-desktop">
+				<div class="section-content section-content-p30">
+					<div class="container-fluid">
+						<div class="header-wrap">
+							<form class="form-header"  method="GET">
+								<input class="au-input au-input-xl" type="text" name="search" [(ngModel)]="inputSearchValue"
+									placeholder="Search for data ..." />
+								<button class="au-btn-submit" (click)="search(this.inputSearchValue)">
+									Search
+								</button>
+							</form>
+							<div class="cart-area d-n">
+								<a href="shopping-detail.html">
+                  <!-- <div class="total">19.22 <span> 2</span> </div>  -->
+                  <i class="fa fa-user"
+										aria-hidden="true"></i>
+								</a>
+							</div>
+						</div>
+						<div class="account-wrap">
+							<ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
+								<li class="nav-item">
+								  <a href="/profile" class="nav-link" routerLink="profile">{{ username }}</a>
+								</li>
+								<li class="nav-item">
+								  <a href class="nav-link" (click)="logout()">LogOut</a>
+								</li>
+							  </ul>
+
+						</div>
+					</div>
+				</div>
+			</header>
+			<!-- END HEADER DESKTOP-->
+
+			<!-- MAIN CONTENT-->
+			<div class="main-content">
+				<div class="section-content section-content-p30">
+					<div class="container-fluid">
+						<!-- <div class="row">
+
+						
+						</div> -->
+
+						<div class="container">
+							<router-outlet></router-outlet>
+						</div>
+						
+
+						<!-- <app-project-cost></app-project-cost>
+						<app-project-list></app-project-list> -->
+						<!-- <div class="plusicon">
+							<p (click)="open(mymodal)">
+								<img src="assets/images/plus-flat.png" alt="add project" class="img-responsive">
+							</p>
+						</div> -->
+						<!-- //[notifier]="subject" -->
+						<!-- <app-new-project ></app-new-project> -->
+						
+						
+						<div class="footer-pagination">
+							<!-- <div class="row">
+								<div class="col-md-6"></div>
+								<div class="col-md-3">
+									<div class="items">
+										<label>Item per page</label> <select>
+											<option>10</option>
+											<option>20</option>
+											<option>30</option>
+											<option>40</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-md-2">
+									<div class="number">1 - 10 of 100</div>
+								</div>
+								<div class="col-md-1">
+									<div class="arrows">
+										<a href="#"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
+										<a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
+									</div>
+								</div>
+							</div> -->
+						</div>
+					</div>
+				</div>
+			</div>
+
+		    <!-- END MAIN CONTENT-->
+
+		</div>
+	</div>
+
+	<!-- END PAGE CONTAINER-->
+
+
+	<footer>
+		<ul>
+			<li><a href="#">About Us</a></li>
+			<li><a href="#">Contact Us</a></li>
+			<li><a href="#">Help</a></li>
+		</ul>
+	</footer>
+
+</body>
+
+</html>
+<!-- end document-->
+
